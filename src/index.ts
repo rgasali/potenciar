@@ -30,6 +30,11 @@ function potenciar(base: number, exponente: number) {
 btnCalcularpotencia.addEventListener("click", () => {
   base = Number(inputNumeroBase.value);
   exponente = Number(inputNumeroExponente.value);
-  potenciar(base, exponente);
+  console.log("exponente 0 " + exponente);
+  if (exponente === 0) {
+    divResultado.innerHTML = `el resultado es 1`;
+  } else if (exponente < 0) {
+    divResultado.innerHTML = "el exponente debe ser un numero positivo";
+  } else potenciar(base, exponente);
   divResultado.innerHTML = `el resultado es ${resultado}`;
 });
