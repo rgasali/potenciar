@@ -19,7 +19,6 @@ function potenciar(base: number, exponente: number) {
   sumaExponencial = base;
   for (let contador = 1; contador < Number(exponente); contador++) {
     sumaExponencial = Number(sumaExponencial) * Number(base);
-    console.log("suma exponencial " + sumaExponencial);
   }
   resultado = Number(sumaExponencial);
   return resultado;
@@ -30,11 +29,30 @@ function potenciar(base: number, exponente: number) {
 btnCalcularpotencia.addEventListener("click", () => {
   base = Number(inputNumeroBase.value);
   exponente = Number(inputNumeroExponente.value);
-  console.log("exponente 0 " + exponente);
+
+  //if (exponente === 0) {
+  // console.log("exponente 0 " + exponente);
+  //divResultado.innerHTML = "el resultado es 1";
+  //} else if (exponente < 0) {
+  //  console.log("exponente menor a cero " + exponente);
+  //   divResultado.innerHTML = "el exponente debe ser un numero positivo";
+  //} else
+  potenciar(base, exponente);
   if (exponente === 0) {
-    divResultado.innerHTML = `el resultado es 1`;
+    divResultado.innerHTML = "el resultado es 1";
   } else if (exponente < 0) {
     divResultado.innerHTML = "el exponente debe ser un numero positivo";
-  } else potenciar(base, exponente);
-  divResultado.innerHTML = `el resultado es ${resultado}`;
+  } else divResultado.innerHTML = `el resultado es ${resultado}`;
 });
+
+//pruebas de escritorio
+
+// base    exponente   resultado esperado              resultado logrado
+// 1          4               1                              1
+// 3          5              243                            243
+// 0          4               0                              0
+//-4          3              -64                           -64
+// 3          1               3                             3
+// 4          0               1                            1
+// 3          -1      solicitar valores positivos          solicitar valores positivos
+//
