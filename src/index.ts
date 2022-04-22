@@ -7,6 +7,8 @@ let btnCalcularpotencia = <HTMLButtonElement>(
   document.getElementById("btnCalcularPotencia")
 );
 let divResultado = <HTMLDivElement>document.getElementById("resultado");
+let btnBase = <HTMLButtonElement>document.getElementById("btnBase");
+let btnExponente = <HTMLButtonElement>document.getElementById("btnExponente");
 
 let base: number;
 let exponente: number;
@@ -25,14 +27,19 @@ function potenciar(base: number, exponente: number) {
 }
 
 //RESTO DEL CODIGO
+btnBase.addEventListener("click", () => {
+  base = Number(inputNumeroBase.value);
+});
+
+btnExponente.addEventListener("click", () => {
+  exponente = Number(inputNumeroExponente.value);
+});
 
 btnCalcularpotencia.addEventListener("click", () => {
-  base = Number(inputNumeroBase.value);
   if (inputNumeroExponente.value !== "") {
     divResultado.innerHTML =
       "debe ingresar un numero base y un numero exponente";
   }
-  exponente = Number(inputNumeroExponente.value);
 
   resultado = potenciar(base, exponente);
   if (exponente === 0) {
@@ -40,7 +47,8 @@ btnCalcularpotencia.addEventListener("click", () => {
   } else if (exponente < 0) {
     divResultado.innerHTML = "el exponente debe ser un numero positivo";
   } else {
-    divResultado.innerHTML = `el resultado es ${resultado}`;
+    divResultado.innerHTML = `El resultado es ${resultado}`;
+    console.log(`El resultado es ${resultado}`);
   }
 });
 
